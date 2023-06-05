@@ -1,5 +1,5 @@
 /*!
- * xr-tools 1.0.0
+ * xr-tool 0.0.1
  * Licensed under MIT
  */
 

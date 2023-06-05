@@ -1,5 +1,5 @@
 {
-  "name": "xr-tools",
+  "name": "xr-tool",
   "version": "0.0.1",
   "description": "一个小而美的工具函数包",
   "main": "dist/index.js",
