@@ -4,10 +4,20 @@
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.xrTools = {})));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require(' date-fns')) :
+  typeof define === 'function' && define.amd ? define(['exports', ' date-fns'], factory) :
+  (factory((global.xrTools = {}),global._dateFns));
+}(this, (function (exports,_dateFns) { 'use strict';
+
+  function _typeof(obj) {
+    "@babel/helpers - typeof";
+
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+      return typeof obj;
+    } : function (obj) {
+      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
+  }
 
   // 7.1.4 ToInteger
   var ceil = Math.ceil;
@@ -122,7 +132,7 @@
 
   // instead of the ES6 spec version, we didn't implement @@toPrimitive case
   // and the second argument - flag - preferred type is a string
-  var _toPrimitive = function (it, S) {
+  var _toPrimitive$1 = function (it, S) {
     if (!_isObject(it)) return it;
     var fn, val;
     if (S && typeof (fn = it.toString) == 'function' && !_isObject(val = fn.call(it))) return val;
@@ -135,7 +145,7 @@
 
   var f = _descriptors ? Object.defineProperty : function defineProperty(O, P, Attributes) {
     _anObject(O);
-    P = _toPrimitive(P, true);
+    P = _toPrimitive$1(P, true);
     _anObject(Attributes);
     if (_ie8DomDefine) try {
       return dP(O, P, Attributes);
@@ -303,10 +313,10 @@
   });
   });
 
-  var id = 0;
+  var id$1 = 0;
   var px = Math.random();
   var _uid = function (key) {
-    return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+    return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id$1 + px).toString(36));
   };
 
   var shared = _shared('keys');
@@ -645,6 +655,14 @@
     return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
   }
 
+  // 数组操作
+
+  // 对象操作
+
+  // 字符串操作
+
+  // Url链接处理
+
   /*检查es6---->es5 */
   from$1('abc'); // ['a', 'b', 'c']
 
@@ -675,8 +693,18 @@
 
     return target;
   }
+  function checkType(x) {
+    var t = _typeof(x);
+    if (x === null) return 'null';
+    if (x !== 'object') return t;
+    var toString = Object.prototype.toString;
+    var innerType = toString.call(x).slice(8, -1);
+    var innerLowType = innerType.toLowerCase();
+    return innerLowType;
+  }
 
   exports.clone = clone;
+  exports.checkType = checkType;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
