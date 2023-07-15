@@ -1,7 +1,5 @@
 const xrTools = require('../../dist/xr-tool.min.js');
 
-console.log(xrTools.clone({ a: 1 }));
-
 const list = [
   { id: 1, name: '张三', age: 12 },
   { id: 1, name: '李斯', age: 12 },
