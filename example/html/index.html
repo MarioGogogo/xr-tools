@@ -11,19 +11,7 @@
   </body>
   <script src="../../dist/xr-tool.min.js"></script>
   <script>
-    console.log('%c Line:13 🧑🏻‍🚀 xrTools.type', 'font-size:18px;color:#ffffff;background:#66CCFF', xrTools.type({ x: 1 }));
-
-    console.log('%c Line:13 🧑🏻‍🚀 xrTools.clone', 'font-size:18px;color:#ffffff;background:#66CCFF', xrTools.clone({ x: { a: 1 } }));
-
-    console.log('%c Line:13 🧑🏻‍🚀 xrTools.today', 'font-size:18px;color:#ffffff;background:#66CCFF', xrTools.today('MM-dd HH:mm'));
-
-    const tor = xrTools.calToday(new Date(), 1);
-
-    console.log('比较天之间', xrTools.compare2Day(tor, new Date()));
-    console.log('比较分钟之间', xrTools.compare2Minutes('2023-06-25 01:00', '2023-06-25 22:59'));
-
-    console.log('拼音', xrTools.makePY('中国人不是动原八府'));
-
-    console.log('随机数', xrTools.generateSerialNumber(9, 'DATE-'));
+    const res = xrTools.toFixed(24.0, 2);
+    console.log('%c Line:12 🍒 res', 'font-size:18px;color:#ffffff;background:#6666FF', res);
   </script>
 </html>

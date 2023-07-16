@@ -30,7 +30,7 @@ export default [
         targets: 'dist/*',
       }),
       // js 压缩插件，需要在最后引入
-      uglify(),
+      // uglify(),
     ],
   },
   {
