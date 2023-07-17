@@ -12,5 +12,8 @@ const list2 = [
 ];
 
 const json = '⌚️哈哈😄字符串';
-const res = xrTools.toFixed(25.187634, 4);
+const date = new Date();
+const min = '2022-12-31';
+const max = '2023-07-18';
+const res = xrTools.isBetweenDay(date, min, max);
 console.log('%c Line:12 🍒 res', 'font-size:18px;color:#ffffff;background:#6666FF', res);
